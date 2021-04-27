@@ -4,16 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>News Summarizer</title>
-    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Quicksand|Roboto&display=swap" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/2ee4c7a33a.js" crossorigin="anonymous"></script>
-    
+    <link
+      href="https://fonts.googleapis.com/css?family=Fredoka+One|Quicksand|Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/2ee4c7a33a.js"
+      crossorigin="anonymous"
+    ></script>
+
     <link rel="stylesheet" href="../static/css/style.css" />
   </head>
   <body>
     <div class="container mb-5">
       <header class="mb-4">
-        <nav class="navbar navbar-expand-lg navbar-light ">
-          <a class="navbar-brand " href="#">News Summarizer</a>
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="#">News Summarizer</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -27,8 +33,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item active ">
-                <a class="nav-link " href="#">Home <span class="sr-only">(current)</span></a>
+              <li class="nav-item active">
+                <a class="nav-link" href="#"
+                  >Home <span class="sr-only">(current)</span></a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">How it works</a>
@@ -45,10 +53,10 @@
       <div class="headcard">
         <div class="row">
           <div class="col-12 col-md-6 mb-4">
-            <div class="card cardone shadow ">
+            <div class="card cardone shadow">
               <div class="card-body">
                 <h6 class="card-title text-muted">Check for</h6>
-                <h5 class="card-subtitle mb-2 ">News Articles</h5>
+                <h5 class="card-subtitle mb-2">News Articles</h5>
                 <form class="form-inline formone mt-5 pt-5" method="POST">
                   <label for="url">URL: </label>
                   <input name="url" />
@@ -58,12 +66,24 @@
             </div>
           </div>
           {% if article %}
+          <!-- Summary -->
           <div class="col-12 col-md-6">
             <div class="card cardtwo shadow">
               <div class="card-body">
                 <h5 class="card-title">{{article.title}}</h5>
-                <p class=" text-muted mb-3">
-                  {{article.summary}}
+                <p class="text-muted mb-3">{{article.summary}}</p>
+              </div>
+            </div>
+          </div>
+          <!-- Word Count -->
+          <div class="col-12 col-md-6">
+            <div class="card cardtwo shadow">
+              <div class="card-body">
+                <h5 class="card-title">Original Article</h5>
+                <p class="text-muted mb-3">Word length: {{article.textlen}}</p>
+                <h5 class="card-title">Summary Article</h5>
+                <p class="text-muted mb-3">
+                  Word length: {{article.summarylen}}
                 </p>
               </div>
             </div>

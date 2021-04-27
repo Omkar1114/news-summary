@@ -22,7 +22,8 @@ def index_post():
     article.download()
     article.parse()
     article.nlp()
-
+    article.textlen = len(article.text.split())
+    article.summarylen = len(article.summary.split())
     return render_template('index.html', article=article)
 
 
