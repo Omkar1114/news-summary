@@ -4,24 +4,27 @@ from textblob import TextBlob
 
 from flask import Flask, request, render_template
 
-# nltk.download('punkt')
+nltk.download('punkt')
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
-  return render_template('index.html')
+    return render_template('index.html')
+
 
 @app.route('/', methods=['POST'])
 def index_post():
-  url = request.form['url']
+    url = request.form['url']
 
-  article = Article(url)
-  article.download()
-  article.parse()  
-  article.nlp()
+    article = Article(url)
+    article.download()
+    article.parse()
+    article.nlp()
 
-  return render_template('index.html',article=article)
+    return render_template('index.html', article=article)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
